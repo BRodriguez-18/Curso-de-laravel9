@@ -13,6 +13,32 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::get('/', function(){
+    return "Welcom";
+});
+
+Route::get('/cursos', function () {
+    return [
+        'Cursos' => [
+            'Curso de Laravel 9',
+            'Curso de programación orientada a objetos',
+            'Curso de Git',
+        ]
+    ];
+});
+
+Route::get('/notas', function(){
+    return view('notes');
+});
+
+Route::get('/notas/crear', function(){
+    return view('add-note');
+});
+
+Route::get('notas/{id}/editar', function($id){
+    return "Editar nota: " . $id;
+});
+
+Route::get('notas/{id}/detalle', function($id){
+    return "Este es el detalle de la nota " . $id;
 });
